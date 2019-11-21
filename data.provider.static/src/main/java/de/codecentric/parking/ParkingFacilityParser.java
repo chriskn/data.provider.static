@@ -29,8 +29,6 @@ public class ParkingFacilityParser {
   
 
     public List<ParkingFacility> parse(String data) throws JAXBException {
-
-        System.setProperty("javax.xml.bind.context.factory", "com.sun.xml.bind.v2.ContextFactory");
         JAXBContext jaxbContext = JAXBContext.newInstance(new Class[]{D2LogicalModel.class, ObjectFactory.class}, null);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<D2LogicalModel> root = unmarshaller.unmarshal(new StreamSource(new StringReader(data)),
